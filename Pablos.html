@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mostrar/Quitar Fondo con Botones</title>
+    <style>
+        /* Estilo inicial del section (oculto) */
+        .section {
+            display: none;
+            background-color: black;
+            color: white;
+            padding: 20px;
+        }
+
+        section{
+            width: 200px;
+        position: absolute;
+        right: 30px;
+        top: 100px;
+        }
+
+        .section2 {
+            display: none;
+            background-color: blue;
+            color: white;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button id="mostrarSection1">Mostrar Fondo 1</button>
+    <button id="mostrarSection2">Mostrar Fondo 2</button>
+    
+    <section id="section1" class="section">
+        <h2>Este es el Fondo 1</h2>
+        <div id="informacion1"></div>
+    </section>
+    
+    <section id="section2" class="section2">
+        <h2>Este es el Fondo 2</h2>
+        <div id="informacion2"></div>
+    </section>
+
+    <script>
+        // Función para mostrar el section deseado y ocultar el otro
+        function mostrarSection(sectionId) {
+            const section1 = document.getElementById("section1");
+            const section2 = document.getElementById("section2");
+
+            if (sectionId === "section1") {
+                section1.style.display = "block";
+                section2.style.display = "none";
+            } else if (sectionId === "section2") {
+                section1.style.display = "none";
+                section2.style.display = "block";
+            }
+        }
+
+        // Asocia la función al evento clic del botón Mostrar Fondo 1
+        const botonMostrar1 = document.getElementById("mostrarSection1");
+        botonMostrar1.addEventListener("click", () => mostrarSection("section1"));
+
+        // Asocia la función al evento clic del botón Mostrar Fondo 2
+        const botonMostrar2 = document.getElementById("mostrarSection2");
+        botonMostrar2.addEventListener("click", () => mostrarSection("section2"));
+    </script>
+</body>
+</html>
+
